@@ -67,38 +67,38 @@
   <hr>
     <ul class="nav nav-pills ">
         <li class="nav-item ">
-          <a class="nav-link active shadow-sm" href="./index.html">
+          <a class="nav-link active shadow-sm" href="{{ route('home') }}">
             <i class="icon ion-md-analytics"></i> Dashboard
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="./user.html">
             <i class="icon ion-md-contact"></i>
-            User Profile
+            Data Admin
           </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link " href="./tables.html">
+          <a class="nav-link " href="#">
             <i class="icon ion-md-clipboard"></i>
-            Table List
+            Data Booking
           </a>
         </li>
         <li class="nav-item ">
           <a class="nav-link " href="./typography.html">
-            <i class="icon ion-md-text"></i>
-            Typography
+            <i class="icon ion-md-train"></i>
+            Kereta
           </a>
         </li>
         <li class="nav-item ">
           <a class="nav-link " href="./icons.html">
-            <i class="icon ion-md-heart"></i>
-            Icons
+            <i class="icon ion-md-airplane"></i>
+            Pesawat
           </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link " href="./maps.html">
-            <i class="icon ion-md-compass"></i>
-            Maps
+          <a class="nav-link " href="#">
+            <i class="icon ion-md-book"></i>
+            Laporan
           </a>
         </li>
         <li class="nav-item ">
