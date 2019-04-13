@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class EditController extends Controller
 {
     public function edit(){
-        return view('booking.edit');
+        return view('admin.booking.edit');
     }
 }
