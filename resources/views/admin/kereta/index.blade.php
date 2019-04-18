@@ -24,54 +24,71 @@
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   @section('css')
   @show
-  {{csrf_field()}}
+
   <!-- Begin Page Content -->
   <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Data User</h1>
+    <h1 class="h3 mb-4 text-gray-800">Jadwal Keberangkatan</h1>
 
+
+    <!-- DataTales Example -->
     <div class="card shadow mb-4">
-      
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+      </div>
       <div class="card-body">
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
                 <th>No</th>
-                <th>Nama User</th>
-                <th>Foto Profile</th>
-                <th>Surel</th>
+                <th>ID</th>
+                <th>Tujuan</th>
+                <th>Stasiun Keberangkantan</th>
+                <th>Waktu berangkat</th>
+                <th>Waktu sampai</th>
+                <th>Tanggal berangkat</th>
                 <th>Aksi</th>
-                <th>Option</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
-              <th>No</th>
-                <th>Nama User</th>
-                <th>Foto Profile</th>
-                <th>Surel</th>
-                <th>Aksi</th>
-                <th>Option</th>
+                <th>No</th>
+                <th>ID</th>
+                <th>Tujuan</th>
+                <th>Stasiun Keberangkantan</th>
+                <th>Waktu berangkat</th>
+                <th>Waktu sampai</th>
+                <th>Tanggal berangkat</th>
+                <th>#</th>
               </tr>
             </tfoot>
             <tbody>
-            @foreach($user as $users)
-            @php $no = 1; @endphp
+              <tr>
+
+                @foreach($jdwl as $table)
+                @php $no = 1; @endphp
               <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{$users->name}}</td>
-                <td>#</td>
-                <td>{{$users->email}}</td>
+                <td>{{$table->id}}</td>
+                <td>{{$table->tujuan}}</td>
+                <td>{{$table->stasiun_keberangkatan}}</td>
+                <td>{{$table->waktu_keberangkatan}}</td>
+                <td>{{$table->waktu_sampai}}</td>
+                <td>{{$table->tanggal_keberangkatan}}</td>
                 <td>
-                              </td>
-                <td>#</td>
+                <a class="btn btn-warning" href="/schedule/edit/{{$table->id}}">Edit</a>
+                <a class="btn btn-danger" href="/schedule/hapus/{{$table->id}}">Hapus</a>
+                </td>
               </tr>
               @endforeach
+
+              </tr>
             </tbody>
           </table>
         </div>
+        <button class="btn btn-submit" href="#">Tambah data</button>
       </div>
     </div>
 
@@ -81,14 +98,10 @@
   </div>
   <!-- End of Main Content -->
 
-  </table>
+
   </div>
   <!-- End of Main Content -->
 
   </div>
-  <!-- End of Content Wrapper -->
-
-  </div>
-
 
   @endsection

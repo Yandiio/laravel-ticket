@@ -24,12 +24,12 @@
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   @section('css')
   @show
-  {{csrf_field()}}
+
   <!-- Begin Page Content -->
   <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Data User</h1>
+    <h1 class="h3 mb-4 text-gray-800">Data Pesawat</h1>
 
     <div class="card shadow mb-4">
       
@@ -39,34 +39,47 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>Nama User</th>
-                <th>Foto Profile</th>
-                <th>Surel</th>
+                <th>ID Pesawat</th>
+                <th>Nama Pesawat</th>
+                <th>Kode Pesawat</th>
+                <th>Kapasitas</th>
+                <th>Type pesawat</th>
+                <th>Maskapai</th>
+                <th>Foto Pesawat</th>
+                <th>Tahun Pesawat</th>
                 <th>Aksi</th>
-                <th>Option</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
-              <th>No</th>
-                <th>Nama User</th>
-                <th>Foto Profile</th>
-                <th>Surel</th>
+                <th>No</th>
+                <th>ID Pesawat</th>
+                <th>Nama Pesawat</th>
+                <th>Kode Pesawat</th>
+                <th>Kapasitas</th>
+                <th>Type pesawat</th>
+                <th>Maskapai</th>
+                <th>Foto Pesawat</th>
+                <th>Tahun Pesawat</th>
                 <th>Aksi</th>
-                <th>Option</th>
               </tr>
             </tfoot>
             <tbody>
-            @foreach($user as $users)
-            @php $no = 1; @endphp
+            @foreach($pswt as $table)
               <tr>
+                @php $no = 1; @endphp
                 <td>{{ $no++ }}</td>
-                <td>{{$users->name}}</td>
-                <td>#</td>
-                <td>{{$users->email}}</td>
+                <td>{{$table->id_pesawat}}</td>
+                <td>{{$table->nama_pesawat}}</td>
+                <td>{{$table->kode_pesawat}}</td>
+                <td>{{$table->kapasitas}}</td>
+                <td>{{$table->tipe_pesawat}}</td>
+                <td>{{$table->maskapai}}</td>
+                <td>{{$table->photo}}</td>
+                <td>{{$table->tahun_pesawat}}</td>
                 <td>
-                              </td>
-                <td>#</td>
+               
+                </td>
               </tr>
               @endforeach
             </tbody>
@@ -91,4 +104,4 @@
   </div>
 
 
-  @endsection
+ @endsection

@@ -18,6 +18,7 @@ Route::get('/book', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout','LoginController@logout');
 
 // // data book
 // Route::get('/book','EditController@index');
@@ -27,17 +28,20 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin','AdminController@index');
 
 // Jadwal Kereta
-// Route::get('schedule','TrainController@index');    
+Route::get('schedule','KeretaController@index');    
 // Route::get('schedule/add-jadwal', 'TrainController@input');
 // Route::post('schedule', 'TrainController@store');
 // Route::get('/schedule/{id}/edit', "TrainController@edit");
 // Route::patch('/schedule/{id}', 'TrainController@update');
 
 // Stasiun Kereta
+Route::get('station','KeretaController@station');
 
 // Jadwal Pesawat
+Route::get('jadwal','PesawatController@index');
 
 // Nama Pesawat
-
+Route::get('pesawat','PesawatController@pswt');
 // Bandara
+Route::get('bandara','PesawatController@bndr');
 

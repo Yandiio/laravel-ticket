@@ -1,3 +1,4 @@
+  <head>
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
@@ -6,7 +7,9 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+    
+    <title>HayuCaw</title>
+    </head>
     <body>
       <!-- Page Wrapper -->
       <div id="wrapper">
@@ -52,7 +55,7 @@
           </li>
 
           <!-- Nav Item - Utilities Collapse Menu -->
-          <li class="nav-item">
+          <li class="nav-item {{request()->is(['schedule','station']) ? 'active' : ''}}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
               aria-expanded="true" aria-controls="collapseUtilities">
               <i class="fas fa-fw fa-train"></i>
@@ -61,14 +64,14 @@
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
               data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{url('/schedule')}}">Jadwal</a>
-                <a class="collapse-item" href="{{url('/pesawat')}}">Nama Stasiun</a>
+                <a class="collapse-item {{request()->is('schedule') ? 'active' : ''}}"  href="{{url('/schedule')}}">Jadwal</a>
+                <a class="collapse-item {{request()->is('station') ? 'active' : ''}}" href="{{url('/station')}}">Nama Stasiun</a>
               </div>
             </div>
           </li>
 
           <!-- Nav Item - Pages Collapse Menu -->
-          <li class="nav-item {{request()->is(['schedule','pesawat','bandara']) ? 'active' : ''}}}">
+          <li class="nav-item {{request()->is(['jadwal','pesawat','bandara']) ? 'active' : ''}}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
               aria-expanded="true" aria-controls="collapsePages">
               <i class="fas fa-fw fa-plane"></i>
@@ -76,9 +79,9 @@
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{url('/schedule')}}">Jadwal</a>
-                <a class="collapse-item" href="{{url('/pesawat')}}">Nama Pesawat</a>
-                <a class="collapse-item" href="{{url('/bandara')}}">Bandara</a>
+                <a class="collapse-item {{request()->is('jadwal') ? 'active' : ''}} " href="{{url('/jadwal')}}">Jadwal</a>
+                <a class="collapse-item {{request()->is('pesawat') ? 'active' : ''}} "href="{{url('/pesawat')}}">Nama Pesawat</a>
+                <a class="collapse-item {{request()->is('bandara') ? 'active' : ''}}" href="{{url('/bandara')}}">Bandara</a>
               </div>
           </li>
 
@@ -252,7 +255,7 @@
                 <li class="nav-item dropdown no-arrow">
                   <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hello, {{Auth::user()->name}} !!</span>
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hello, {{isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email}} !!</span>
                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                   </a>
                   <!-- Dropdown - User Information -->
@@ -260,18 +263,14 @@
                     aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="#">
                       <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                      Profile
+                      Edit Profile
                     </a>
                     <a class="dropdown-item" href="#">
                       <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                       Settings
                     </a>
-                    <a class="dropdown-item" href="#">
-                      <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                      Activity Log
-                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{Route('logout')}}" method="POST" data-toggle="modal"
+                    <a class="dropdown-item" href="{{route('logout')}}" method="POST" data-toggle="modal"
                       data-target="#logoutModal">
                       <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                       Logout
@@ -312,8 +311,8 @@
               </div>
               <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
               <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">Logout</a>
+                <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">Logout</a>
                 <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                   {{ csrf_field() }}
                 </form>
@@ -339,4 +338,5 @@
         <!-- Page level custom scripts -->
         <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
         <script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
+        @section('js')
     </body>
