@@ -32,7 +32,8 @@ class PesawatController extends Controller
     	$rule = [
     		'nama_bandara' => 'required|string',
     		'kota' => 'required|string',
-    		'alamat' => 'required',
+            'alamat' => 'required',
+            'negara'=>'required',
     		'keterangan' => 'required'
     	];
     	$this->validate($request, $rule);
@@ -43,6 +44,7 @@ class PesawatController extends Controller
     	$bandara->nama_bandara = $input['nama_bandara'];
     	$bandara->kota = $input['kota'];
         $bandara->alamat = $input['alamat'];
+        $bandara->negara = $input['negara'];
         $bandara->keterangan = $input['keterangan'];
     	$status = $bandara->save();
 

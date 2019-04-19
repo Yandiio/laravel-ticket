@@ -48,6 +48,7 @@
               <tr>
                 <th>No</th>
                 <th>Nama Bandara</th>
+                <th>Negara</th>
                 <th>Kota</th>
                 <th>Alamat</th>
                 <th>keterangan</th>
@@ -58,6 +59,7 @@
               <tr>
                 <th>No</th>
                 <th>Nama Bandara</th>
+                <th>Negara</th>
                 <th>Kota</th>
                 <th>Alamat</th>
                 <th>keterangan</th>
@@ -70,6 +72,7 @@
               <tr>
                 <td>{{ $no++ }}</td>
                 <td>{{$table->nama_bandara}}</td>
+                <td>{{$table->negara}}</td>
                 <td>{{$table->kota}}</td>
                 <td>{{$table->alamat}}</td>
                 <td>{{$table->keterangan}}</td>
