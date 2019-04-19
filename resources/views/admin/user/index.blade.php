@@ -39,8 +39,8 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>Nama User</th>
                 <th>Foto Profile</th>
+                <th>Nama User</th>
                 <th>Surel</th>
                 <th>Aksi</th>
                 <th>Option</th>
@@ -48,24 +48,23 @@
             </thead>
             <tfoot>
               <tr>
-              <th>No</th>
-                <th>Nama User</th>
+                <th>No</th>
                 <th>Foto Profile</th>
+                <th>Nama User</th>
                 <th>Surel</th>
                 <th>Aksi</th>
                 <th>Option</th>
               </tr>
             </tfoot>
             <tbody>
-            @foreach($user as $users)
             @php $no = 1; @endphp
+            @foreach($user as $users)        
               <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{$users->name}}</td>
                 <td>#</td>
+                <td>{{$users->name}}</td>
                 <td>{{$users->email}}</td>
-                <td>
-                              </td>
+                <td>#</td>
                 <td>#</td>
               </tr>
               @endforeach
