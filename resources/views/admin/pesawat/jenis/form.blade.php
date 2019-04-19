@@ -50,33 +50,41 @@
     <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Form Bandara</h1>
+    <h1 class="h3 mb-4 text-gray-800">Form Pesawat</h1>
 
-    <form action="{{ url('bandara' , @$bandara->id) }}" method="POST">
+    <form action="{{ url('pesawat' , @$pesawat->id) }}" method="POST">
     <!-- @csrf -->
     {{csrf_field()}}
-	@if(!empty($bandara))
+	@if(!empty($pesawat))
 		@method('PATCH')
 		<!-- BLANK -->
 	@endif
 
   	<div class="form-group">
-    	<label for="formGroupNamaBandara">Nama Bandara</label>
-      	<input type="text" class="form-control" id="formGroupNamaBandara" name="nama_bandara" value="{{ old('nama_bandara' , @$bandara->nama_bandara) }}" autocomplete="off">
+    	<label for="formGroupNamapesawat">Nama Pesawat</label>
+      	<input type="text" class="form-control" id="formGroupNamapesawat" name="nama_pesawat" value="{{ old('nama_pesawat' , @$pesawat->nama_pesawat) }}" autocomplete="off">
   	</div>	
 	<div class="form-group">
-    	<label for="formGroupKota">Kota</label>
-      	<input type="text" class="form-control" id="formGroupKota" name="kota" value="{{ old('kota' , @$bandara->kota) }}" autocomplete="off">
+    	<label for="formGroupKode">Kode Pesawat</label>
+      	<input type="text" class="form-control" id="formGroupKode" name="kode_pesawat" value="{{ old('kode_pesawat' , @$pesawat->kode_pesawat) }}" autocomplete="off">
   	</div>
     <div class="form-group">
-    	<label for="formGroupAlamat">Alamat</label>
-      	<input type="text" class="form-control" id="formGroupAlamat" name="alamat" value="{{ old('alamat' , @$bandara->alamat) }}" autocomplete="off">
+    	<label for="formGroupKapasitas">Kapasitas</label>
+      	<input type="number" class="form-control" id="formGroupKapasitas" name="kapasitas" value="{{ old('kapasitas' , @$pesawat->kapasitas) }}" autocomplete="off" min="30" max="500">
   	</div>
     <div class="form-group">
-    	<label for="formGroupKeterangan">Keterangan</label>
-      	<input type="text" class="form-control" id="formGroupKeterangan" name="keterangan" value="{{ old('keterangan' , @$bandara->keterangan) }}" autocomplete="off">
-  	</div>    
-
+    	<label for="formGroupTipe">Tipe Pesawat</label>
+      	<input type="text" class="form-control" id="formGroupTipe" name="tipe_pesawat" value="{{ old('tipe_pesawat' , @$pesawat->tipe_pesawat) }}" autocomplete="off">
+  	</div>
+    <div class="form-group">
+    	<label for="formGroupMaskapai">Maskapai</label>
+      	<input type="text" class="form-control" id="formGroupMaskapai" name="maskapai" value="{{ old('maskapai' , @$pesawat->maskapai) }}" autocomplete="off">
+  	</div>     
+      <div class="form-group">
+    	<label for="formGroupTahun">Tahun Pesawat</label>
+      	<input type="number" class="form-control" id="formGroupTahun" name="tahun_pesawat" value="{{ old('tahun_pesawat' , @$pesawat->tahun_pesawat) }}" autocomplete="off" min="1" max="2030">
+  	</div> 
+    <!-- foto -->
 	<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
     </form>
 

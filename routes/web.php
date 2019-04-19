@@ -39,12 +39,12 @@ Route::delete('/schedule/hapus/{id}','KeretaController@destroy');
 Route::get('station','KeretaController@station');
 
 // Jadwal Pesawat
-Route::get('jadwal','PesawatController@index');
-Route::get('jadwal/tambah','PesawatController@pswtTambah');
-Route::post('jadwal', 'PesawatController@pswtStore');
-Route::get('jadwal/{id}/edit','PesawatController@pswtEdit');
-Route::patch('jadwal/{id}', 'PesawatController@pswtUpdate');
-Route::delete('jadwal/{id}', 'PesawatController@pswtHapus');
+Route::get('jadwal','PesawatController@jdwl');
+Route::get('jadwal/tambah','PesawatController@jdwlTambah');
+Route::post('jadwal', 'PesawatController@jdwlStore');
+Route::get('jadwal/{id}/edit','PesawatController@jdwlEdit');
+Route::patch('jadwal/{id}', 'PesawatController@jdwlUpdate');
+Route::delete('jadwal/{id}', 'PesawatController@jdwlHapus');
 
 // Nama Pesawat
 Route::get('pesawat','PesawatController@pswt');

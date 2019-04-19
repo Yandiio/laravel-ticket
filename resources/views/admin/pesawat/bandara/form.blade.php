@@ -52,6 +52,10 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Form Bandara</h1>
 
+    <a href="{{ url('/bandara') }}">
+        <button type="button" class="btn btn-secondary mb-2"><i class="glyphicon glyphicon-chevron-left"></i> Kembali</button>
+    </a>
+
     <form action="{{ url('bandara' , @$bandara->id) }}" method="POST">
     <!-- @csrf -->
     {{csrf_field()}}
@@ -72,10 +76,10 @@
     	<label for="formGroupAlamat">Alamat</label>
       	<input type="text" class="form-control" id="formGroupAlamat" name="alamat" value="{{ old('alamat' , @$bandara->alamat) }}" autocomplete="off">
   	</div>
-    <div class="form-group">
-    	<label for="formGroupKeterangan">negara</label>
-      	<input type="text" class="form-control" id="formGroupKeterangan" name="negara" value="{{ old('negara' , @$bandara->negara) }}" autocomplete="off">
-  	</div>    
+      <div class="form-group">
+    	<label for="formGroupNegara">Negara</label>
+      	<input type="text" class="form-control" id="formGroupNegara" name="negara" value="{{ old('negara' , @$bandara->negara) }}" autocomplete="off">
+  	</div>   
     <div class="form-group">
     	<label for="formGroupKeterangan">Keterangan</label>
       	<input type="text" class="form-control" id="formGroupKeterangan" name="keterangan" value="{{ old('keterangan' , @$bandara->keterangan) }}" autocomplete="off">

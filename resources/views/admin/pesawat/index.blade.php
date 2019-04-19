@@ -38,7 +38,9 @@
       
       <div class="card-body">
         <div class="table-responsive">
-        <button class="btn btn-success" href="#">Tambah Data</button> <br><br>
+        <a href="{{ url('/jadwal/tambah/') }}">
+          <button class="btn btn-success">Tambah Data</button>
+        </a> <br><br>
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
@@ -74,7 +76,7 @@
                 <td>{{$table->waktu_keberangkatan}}</td>
                 <td>{{$table->waktu_sampai}}</td>
                 <td>{{$table->tanggal_keberangkatan}}</td>
-                <td>{{$table->durasi_perjalanan}}</td>
+                <td>{{$table->Durasi_perjalanan}}</td>
                 <td>   
                 <a class="btn btn-warning " href="/jadwal/edit/{{$table->id}}">Edit</a>
                 <a class="btn btn-danger" href="/jadwal/hapus/{{$table->id}}">Hapus</a>   

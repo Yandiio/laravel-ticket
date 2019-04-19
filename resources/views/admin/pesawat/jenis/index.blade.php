@@ -37,7 +37,9 @@
       </div>
       <div class="card-body">
         <div class="table-responsive">
-        <button class="btn btn-success">Tambah Data</button> <br><br>
+        <a href="{{ url('/pesawat/tambah/') }}">
+          <button class="btn btn-success">Tambah Data</button>
+        </a> <br><br>
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
