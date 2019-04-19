@@ -56,6 +56,9 @@
     <h1 class="h3 mb-4 text-gray-800">Jadwal Penerbangan</h1>
 
     <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Data dari Jadwal Penerbangan</h6>
+      </div>
       
       <div class="card-body">
         <div class="table-responsive">
@@ -63,7 +66,6 @@
             <thead>
               <tr>
               <th>No</th>
-                <th>ID Pesawat</th>
                 <th>Tujuan</th>
                 <th>Bandara Keberangkatan</th> 
                 <th>Waktu Keberangkatan</th>
@@ -76,7 +78,6 @@
             <tfoot>
               <tr>
                 <th>No</th>
-                <th>ID Pesawat</th>
                 <th>Tujuan</th>
                 <th>Bandara Keberangkatan</th> 
                 <th>Waktu Keberangkatan</th>
@@ -91,19 +92,21 @@
               <tr>
                 @php $no = 1; @endphp
                 <td>{{ $no++ }}</td>
-                <td>{{$table->id_jdwlPesawat}}</td>
                 <td>{{$table->tujuan}}</td>
                 <td>{{$table->Bandara_keberangkatan}}</td>
                 <td>{{$table->waktu_keberangkatan}}</td>
                 <td>{{$table->waktu_sampai}}</td>
                 <td>{{$table->tanggal_keberangkatan}}</td>
                 <td>{{$table->durasi_perjalanan}}</td>
-                <td>      
+                <td>   
+                <a class="btn btn-warning " href="/jadwal/edit/{{$table->id}}">Edit</a>
+                <a class="btn btn-danger" href="/jadwal/hapus/{{$table->id}}">Hapus</a>   
                 </td>
               </tr>
               @endforeach
             </tbody>
           </table>
+          {{$pswat->links()}}
         </div>
       </div>
     </div>

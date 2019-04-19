@@ -10,17 +10,17 @@ use App\bandara;
 class PesawatController extends Controller
 {
     public function index(){
-        $pswat = jdwlPesawat::get();
+        $pswat = jdwlPesawat::paginate(4);
         return view('admin.pesawat.index',compact('pswat'));
     }
 
     public function pswt(){
-        $pswt = pesawat::get();
+        $pswt = pesawat::paginate(4);
         return view('admin.pesawat.jenis.index',compact('pswt'));
     }
 
     public function bndr(){
-        $bandara = bandara::get();
+        $bandara = bandara::paginate(4);
         return view('admin.pesawat.bandara.index',compact('bandara'));
     }
 }

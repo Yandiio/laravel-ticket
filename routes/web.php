@@ -28,7 +28,8 @@ Route::get('logout','LoginController@logout');
 Route::get('admin','AdminController@index');
 
 // Jadwal Kereta
-Route::get('schedule','KeretaController@index');    
+Route::get('/schedule','KeretaController@index');    
+Route::delete('/schedule/hapus/{id}','KeretaController@destroy');
 // Route::get('schedule/add-jadwal', 'TrainController@input');
 // Route::post('schedule', 'TrainController@store');
 // Route::get('/schedule/{id}/edit', "TrainController@edit");

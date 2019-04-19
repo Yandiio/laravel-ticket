@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+{{csrf_field()}}
 
 <head>
 
@@ -35,15 +36,15 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
       <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Jadwal yang terdaftar</h6>
       </div>
       <div class="card-body">
         <div class="table-responsive">
+          <button class="btn btn-success" href="#">Tambah Data</button> <br><br>
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
                 <th>No</th>
-                <th>ID</th>
                 <th>Tujuan</th>
                 <th>Stasiun Keberangkantan</th>
                 <th>Waktu berangkat</th>
@@ -55,40 +56,36 @@
             <tfoot>
               <tr>
                 <th>No</th>
-                <th>ID</th>
                 <th>Tujuan</th>
                 <th>Stasiun Keberangkantan</th>
                 <th>Waktu berangkat</th>
                 <th>Waktu sampai</th>
                 <th>Tanggal berangkat</th>
-                <th>#</th>
+                <th>Aksi</th>
               </tr>
             </tfoot>
             <tbody>
-              <tr>
-
-                @foreach($jdwl as $table)
-                @php $no = 1; @endphp
+              @foreach($jdwl as $table)
+              @php $no = 1; @endphp
               <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{$table->id}}</td>
                 <td>{{$table->tujuan}}</td>
                 <td>{{$table->stasiun_keberangkatan}}</td>
                 <td>{{$table->waktu_keberangkatan}}</td>
                 <td>{{$table->waktu_sampai}}</td>
                 <td>{{$table->tanggal_keberangkatan}}</td>
                 <td>
-                <a class="btn btn-warning" href="/schedule/edit/{{$table->id}}">Edit</a>
-                <a class="btn btn-danger" href="/schedule/hapus/{{$table->id}}">Hapus</a>
+                  <a class="btn btn-warning " href="#">Edit</a>
+                  <form action="{{url('/schedule/hapus',$table->id)}}" method="POST">
+                    <button class="btn btn-danger" type="submit">Hapus</button>
+                  </form>
                 </td>
               </tr>
               @endforeach
-
-              </tr>
             </tbody>
           </table>
         </div>
-        <button class="btn btn-submit" href="#">Tambah data</button>
+        {{$jdwl->links()}}
       </div>
     </div>
 
