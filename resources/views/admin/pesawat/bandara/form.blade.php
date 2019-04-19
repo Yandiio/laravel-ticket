@@ -73,6 +73,10 @@
       	<input type="text" class="form-control" id="formGroupAlamat" name="alamat" value="{{ old('alamat' , @$bandara->alamat) }}" autocomplete="off">
   	</div>
     <div class="form-group">
+    	<label for="formGroupKeterangan">negara</label>
+      	<input type="text" class="form-control" id="formGroupKeterangan" name="negara" value="{{ old('negara' , @$bandara->negara) }}" autocomplete="off">
+  	</div>    
+    <div class="form-group">
     	<label for="formGroupKeterangan">Keterangan</label>
       	<input type="text" class="form-control" id="formGroupKeterangan" name="keterangan" value="{{ old('keterangan' , @$bandara->keterangan) }}" autocomplete="off">
   	</div>    
