@@ -9,7 +9,7 @@ use App\bandara;
 
 class PesawatController extends Controller
 {
-    public function index(){
+    public function jdwl(){
         $jadwal = jdwlPesawat::paginate(4);
         return view('admin.pesawat.index',compact('jadwal'));
     }

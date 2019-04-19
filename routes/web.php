@@ -40,9 +40,20 @@ Route::get('station','KeretaController@station');
 
 // Jadwal Pesawat
 Route::get('jadwal','PesawatController@index');
+Route::get('jadwal/tambah','PesawatController@pswtTambah');
+Route::post('jadwal', 'PesawatController@pswtStore');
+Route::get('jadwal/{id}/edit','PesawatController@pswtEdit');
+Route::patch('jadwal/{id}', 'PesawatController@pswtUpdate');
+Route::delete('jadwal/{id}', 'PesawatController@pswtHapus');
 
 // Nama Pesawat
 Route::get('pesawat','PesawatController@pswt');
+Route::get('pesawat/tambah','PesawatController@pswtTambah');
+Route::post('pesawat', 'PesawatController@pswtStore');
+Route::get('pesawat/{id}/edit','PesawatController@pswtEdit');
+Route::patch('pesawat/{id}', 'PesawatController@pswtUpdate');
+Route::delete('pesawat/{id}', 'PesawatController@pswtHapus');
+
 // Bandara
 Route::get('bandara','PesawatController@bndr');
 Route::get('bandara/tambah','PesawatController@bndrTambah');
