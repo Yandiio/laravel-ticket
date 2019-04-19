@@ -28,7 +28,8 @@ Route::get('logout','LoginController@logout');
 Route::get('admin','AdminController@index');
 
 // Jadwal Kereta
-Route::get('schedule','KeretaController@index');    
+Route::get('/schedule','KeretaController@index');    
+Route::delete('/schedule/hapus/{id}','KeretaController@destroy');
 // Route::get('schedule/add-jadwal', 'TrainController@input');
 // Route::post('schedule', 'TrainController@store');
 // Route::get('/schedule/{id}/edit', "TrainController@edit");
@@ -44,4 +45,9 @@ Route::get('jadwal','PesawatController@index');
 Route::get('pesawat','PesawatController@pswt');
 // Bandara
 Route::get('bandara','PesawatController@bndr');
+Route::get('bandara/tambah','PesawatController@bndrTambah');
+Route::post('bandara', 'PesawatController@bndrStore');
+Route::get('bandara/{id}/edit','PesawatController@bndrEdit');
+Route::patch('bandara/{id}', 'PesawatController@bndrUpdate');
+Route::delete('bandara/{id}', 'PesawatController@bndrHapus');
 

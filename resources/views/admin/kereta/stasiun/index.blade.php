@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <head>
 
   <meta charset="utf-8">
@@ -32,64 +33,75 @@
 
   </div>
   <!-- /.container-fluid -->
-   <!-- Begin Page Content -->
-   <div class="container-fluid">
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
 
 
 
-<!-- DataTales Example -->
-<div class="card shadow mb-4">
-  <div class="card-header py-3">
-    List dari stasiun kereta yang tertera
-  </div>
-  <div class="card-body">
-    <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-        <tr>
-            <th>No</th>
-            <th>Seri</th>
-            <th>Nama Stasiun</th>
-            <th>Kota</th>
-            <th>Alamat</th>
-            <th>keterangan</th>
-            <th>Aksi</th>
-          </tr>
-        </thead>
-        <tbody>
-        @foreach($sch as $table)
-            @php $no = 1; @endphp
-          <tr>
-            <td>{{ $no++ }}</td>
-            <td>{{$table->nomor}}</td>
-            <td>{{$table->nama_stasiun}}</td>
-            <td>{{$table->kota}}</td>
-            <td>{{$table->alamat}}</td>
-            <td>{{$table->keterangan}}</td>
-            <td>
-            <td>
-                <a class="btn btn-warning " href="/stasiun/edit/{{$table->id}}">Edit</a>
-                <a class="btn btn-danger" href="/stasiun/hapus/{{$table->id}}">Hapus</a>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Stasiun Kereta yang terdaftar</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+        <button class="btn btn-success">Tambah Data</button> <br><br>
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Seri</th>
+                <th>Nama Stasiun</th>
+                <th>Kota</th>
+                <th>Alamat</th>
+                <th>keterangan</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <th>No</th>
+                <th>Seri</th>
+                <th>Nama Stasiun</th>
+                <th>Kota</th>
+                <th>Alamat</th>
+                <th>keterangan</th>
+                <th>Aksi</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              @php $no = 1; @endphp
+              @foreach($sch as $table) 
+              <tr>
+                <td>{{ $no++ }}</td>
+                <td>{{$table->nomor}}</td>
+                <td>{{$table->nama_stasiun}}</td>
+                <td>{{$table->kota}}</td>
+                <td>{{$table->alamat}}</td>
+                <td>{{$table->keterangan}}</td>
+                <td>
+                  <a class="btn btn-warning " href="/stasiun/edit/{{$table->id}}">Edit</a>
+                  <a class="btn btn-danger" href="/stasiun/hapus/{{$table->id}}">Hapus</a>
                 </td>
-                </td>
-          </tr>
-          @endforeach
-        </tbody>
-      </table>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+          {{$sch->links()}}
+        </div>
+      </div>
     </div>
+
   </div>
-</div>
+  <!-- /.container-fluid -->
 
-</div>
-<!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content -->
-
-	</table>
   </div>
   <!-- End of Main Content -->
- 
+
+  </table>
+  </div>
+  <!-- End of Main Content -->
+
   </div>
   <!-- End of Content Wrapper -->
   @endsection

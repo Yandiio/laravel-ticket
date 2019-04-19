@@ -10,7 +10,7 @@
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Data Booking Tiket</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Data Booking User</h6>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -38,7 +38,6 @@
           </tfoot>
           <tbody>
             <tr>
-
               @php $no = 1; @endphp
               <td>{{ $no++ }}</td>
               <td>#</td>
@@ -46,10 +45,10 @@
               <td>#</td>
               <td>#</td>
               <td>#</td>
-
             </tr>
           </tbody>
         </table>
+        
       </div>
     </div>
   </div>

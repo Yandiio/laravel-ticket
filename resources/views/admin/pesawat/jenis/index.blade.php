@@ -31,10 +31,13 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Data Pesawat</h1>
 
-    <div class="card shadow mb-4">
-      
+    <div class="card shadow mb-4">  
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Data & Spesifikasi pesawat</h6>
+      </div>
       <div class="card-body">
         <div class="table-responsive">
+        <button class="btn btn-success">Tambah Data</button> <br><br>
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
@@ -65,9 +68,9 @@
               </tr>
             </tfoot>
             <tbody>
+            @php $no = 1; @endphp
             @foreach($pswt as $table)
               <tr>
-                @php $no = 1; @endphp
                 <td>{{ $no++ }}</td>
                 <td>{{$table->id_pesawat}}</td>
                 <td>{{$table->nama_pesawat}}</td>
@@ -78,12 +81,14 @@
                 <td>{{$table->photo}}</td>
                 <td>{{$table->tahun_pesawat}}</td>
                 <td>
-               
+                <a class="btn btn-warning " href="/pesawat/edit/{{$table->id}}">Edit</a>
+                <a class="btn btn-danger" href="/pesawat/hapus/{{$table->id}}">Hapus</a>   
                 </td>
               </tr>
               @endforeach
             </tbody>
           </table>
+          {{$pswt->links()}}
         </div>
       </div>
     </div>

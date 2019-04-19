@@ -32,8 +32,10 @@
     <h1 class="h3 mb-4 text-gray-800">Data User</h1>
 
     <div class="card shadow mb-4">
-      
       <div class="card-body">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Data Booking User</h6>
+        </div>
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
@@ -57,8 +59,8 @@
               </tr>
             </tfoot>
             <tbody>
-            @php $no = 1; @endphp
-            @foreach($user as $users)        
+              @php $no = 1; @endphp
+              @foreach($user as $users)
               <tr>
                 <td>{{ $no++ }}</td>
                 <td>#</td>
