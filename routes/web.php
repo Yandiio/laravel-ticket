@@ -44,7 +44,7 @@ Route::get('jadwal/tambah','PesawatController@jdwlTambah');
 Route::post('jadwal', 'PesawatController@jdwlStore');
 Route::get('jadwal/{id}/edit','PesawatController@jdwlEdit');
 Route::patch('jadwal/{id}', 'PesawatController@jdwlUpdate');
-Route::delete('jadwal/{id}', 'PesawatController@jdwlHapus');
+Route::get('jadwal/{id}', 'PesawatController@jdwlHapus');
 
 // Nama Pesawat
 Route::get('pesawat','PesawatController@pswt');

@@ -48,6 +48,18 @@ class PesawatController extends Controller
     	}
     }
 
+    public function jdwlHapus(Request $request, $id)
+    {
+    	// $jadwal = \App\jdwlPesawat::find($id);
+    	// $status = $jadwal->delete();
+        $status = \DB::table('jdwl_pesawat')->where('id_jdwlPesawat', $id)->delete();
+    	if ($status) {
+    		return redirect('/jadwal')->with('success', 'Data berhasil dihapus');
+    	} else {
+    		return redirect('/jadwal')->with('error', 'Data gagal dihapus');
+    	}
+    }
+
     /* PESAWAT */
     public function pswt(){
         $pswt = pesawat::paginate(4);

@@ -79,7 +79,11 @@
                 <td>{{$table->Durasi_perjalanan}}</td>
                 <td>   
                 <a class="btn btn-warning " href="/jadwal/edit/{{$table->id}}">Edit</a>
-                <a class="btn btn-danger" href="/jadwal/hapus/{{$table->id}}">Hapus</a>   
+                  <form action="{{ url('/jadwal/' . $table->id ) }}" method="DELETE">
+                    {{csrf_field()}}
+					          <button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Delete</button>
+				          </form>
+                <!-- <a class="btn btn-danger" href="/jadwal/hapus/{{$table->id}}">Hapus</a>    -->
                 </td>
               </tr>
               @endforeach
