@@ -50,44 +50,41 @@
     <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Form jadwal</h1>
+    <h1 class="h3 mb-4 text-gray-800">Form Bandara</h1>
 
-    <a href="{{ url('/jadwal') }}">
+    <a href="{{ url('/bandara') }}">
         <button type="button" class="btn btn-secondary mb-2"><i class="glyphicon glyphicon-chevron-left"></i> Kembali</button>
     </a>
 
-    <form action="{{ url('jadwal' , @$jadwal->id_jdwlPesawat) }}" method="POST">
+    <form action="{{ url('bandara' , @$bandara->id) }}" method="PATCH">
     <!-- @csrf -->
-    {{csrf_field()}}
-	@if(!empty($jadwal))
-		@method('PATCH')
+    
+	@if(!empty($bandara))
+  {{csrf_field()}}
+		{{method_field('PATCH')}}
 		<!-- BLANK -->
 	@endif
 
   	<div class="form-group">
-    	<label for="formGroupTujuan">Tujuan</label>
-      	<input type="text" class="form-control" id="formGroupTujuan" name="tujuan" value="{{ old('tujuan' , @$jadwal->tujuan) }}" autocomplete="off">
+    	<label for="formGroupNamaBandara">Nama Bandara</label>
+      	<input type="text" class="form-control" id="formGroupNamaBandara" name="nama_bandara" value="{{ old('nama_bandara' , @$bandara->nama_bandara) }}" autocomplete="off">
   	</div>	
 	<div class="form-group">
-    	<label for="formGroupBandara">Bandara Keberangkatan</label>
-      	<input type="text" class="form-control" id="formGroupBandara" name="Bandara_keberangkatan" value="{{ old('Bandara_keberangkatan' , @$jadwal->Bandara_keberangkatan) }}" autocomplete="off">
+    	<label for="formGroupKota">Kota</label>
+      	<input type="text" class="form-control" id="formGroupKota" name="kota" value="{{ old('kota' , @$bandara->kota) }}" autocomplete="off">
   	</div>
     <div class="form-group">
-    	<label for="formGroupWBerangkat">Waktu Keberangkatan</label>
-      	<input type="time" class="form-control" id="formGroupWBerangkat" name="waktu_keberangkatan" value="{{ old('waktu_keberangkatan' , @$jadwal->waktu_keberangkatan) }}" autocomplete="off">
+    	<label for="formGroupAlamat">Alamat</label>
+      	<input type="text" class="form-control" id="formGroupAlamat" name="alamat" value="{{ old('alamat' , @$bandara->alamat) }}" autocomplete="off">
   	</div>
       <div class="form-group">
-    	<label for="formGroupWSampai">Waktu Sampai</label>
-      	<input type="time" class="form-control" id="formGroupWSampai" name="waktu_sampai" value="{{ old('waktu_sampai' , @$jadwal->waktu_sampai) }}" autocomplete="off">
+    	<label for="formGroupNegara">Negara</label>
+      	<input type="text" class="form-control" id="formGroupNegara" name="negara" value="{{ old('negara' , @$bandara->negara) }}" autocomplete="off">
   	</div>   
     <div class="form-group">
-    	<label for="formGroupTGL">Tanggal Keberangkatan</label>
-      	<input type="date" class="form-control" id="formGroupTGL" name="tanggal_keberangkatan" value="{{ old('tanggal_keberangkatan' , @$jadwal->tanggal_keberangkatan) }}" autocomplete="off">
-  	</div>
-    <div class="form-group">
-    	<label for="formGroupDurasi">Durasi Perjalanan</label>
-      	<input type="number" class="form-control" id="formGroupDurasi" name="Durasi_perjalanan" value="{{ old('Durasi_perjalanan' , @$jadwal->Durasi_perjalanan) }}" autocomplete="off">
-  	</div>     
+    	<label for="formGroupKeterangan">Keterangan</label>
+      	<input type="text" class="form-control" id="formGroupKeterangan" name="keterangan" value="{{ old('keterangan' , @$bandara->keterangan) }}" autocomplete="off">
+  	</div>    
 
 	<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
     </form>

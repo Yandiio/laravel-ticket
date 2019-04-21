@@ -85,6 +85,10 @@
       	<input type="number" class="form-control" id="formGroupTahun" name="tahun_pesawat" value="{{ old('tahun_pesawat' , @$pesawat->tahun_pesawat) }}" autocomplete="off" min="1" max="2030">
   	</div> 
     <!-- foto -->
+		<div class="form-group">
+    	<label for="formGroupTahun">Foto</label><br>
+      	<input type="file" id="formGroupFoto" name="foto_pesawat" value="{{ old('foto' , @$pesawat->foto) }}" autocomplete="off" min="1" max="2030">
+  	</div> <br>
 	<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
     </form>
 

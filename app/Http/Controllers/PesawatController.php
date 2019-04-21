@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\pesawat;
 use App\jdwlPesawat;
 use App\bandara;
+use Alert;
 
 class PesawatController extends Controller
 {
@@ -42,21 +43,53 @@ class PesawatController extends Controller
     	$status = $jadwal->save();
 
     	if ($status) {
+            Alert::success('Success', 'Data Berhasil Ditambah');
     		return redirect('/jadwal')->with('success', 'Data berhasil ditambahkan');
     	} else {
     		return redirect('/jadwal/tambah')->with('error', 'Data gagal ditambahkan');
     	}
     }
 
+    public function jdwlUpdate(Request $request)
+    {
+    	$rule = [
+    		'tujuan' => 'required|string',
+    		'Bandara_keberangkatan' => 'required|string',
+            'waktu_keberangkatan' => 'required',
+            'waktu_sampai'=>'required',
+            'tanggal_keberangkatan' => 'required|date',
+            'Durasi_perjalanan' => 'required'
+    	];
+    	$this->validate($request, $rule);
+    	$input = $request->all();
+
+
+        $naon = jdwlPesawat::find('id_jdwlPesawat',$id);
+        $status = $naon->update($input);
+
+
+    	if ($status) {
+    		return redirect('/bandara')->with('success', 'Data berhasil diedit');
+    	} else {
+    		return redirect('/bandara/tambah')->with('error', 'Data gagal diedit');
+        }
+        
+    }
+
+    public function jdwlEdit(Request $request,$id){
+        $data = jdwlPesawat::where('id_jdwlPesawat',$id)->first();
+        return view('admin.pesawat.edit',['jdwl_Pesawat' => $data]);
+    }
+
     public function jdwlHapus(Request $request, $id)
     {
-    	// $jadwal = \App\jdwlPesawat::find($id);
-    	// $status = $jadwal->delete();
-        $status = \DB::table('jdwl_pesawat')->where('id_jdwlPesawat', $id)->delete();
-    	if ($status) {
-    		return redirect('/jadwal')->with('success', 'Data berhasil dihapus');
+    	$jadwal = jdwlPesawat::where('id_jdwlPesawat',$id)->delete();
+
+    	if ($jadwal) {
+            Alert::success('Success', 'Data Berhasil Dihapus');
+            return redirect('/jadwal')->with('Berhasil', 'Data berhasil dihapus');
     	} else {
-    		return redirect('/jadwal')->with('error', 'Data gagal dihapus');
+    		return redirect('/jadwal/tambah')->with('error', 'Data gagal dihapus');
     	}
     }
 
@@ -90,13 +123,24 @@ class PesawatController extends Controller
         $pesawat->tipe_pesawat = $input['tipe_pesawat'];
         $pesawat->maskapai = $input['maskapai'];
         $pesawat->tahun_pesawat = $input['tahun_pesawat'];
-        //$pesawat->photo = ?
+        // $pesawat->photo = $['']
     	$status = $pesawat->save();
 
     	if ($status) {
     		return redirect('/pesawat')->with('success', 'Data berhasil ditambahkan');
     	} else {
     		return redirect('/pesawat/tambah')->with('error', 'Data gagal ditambahkan');
+    	}
+    }
+
+    public function pswtHapus(Request $request, $id)
+    {
+    	$jadwal = pesawat::where('id_pesawat',$id)->delete();
+
+    	if ($jadwal) {
+    		return redirect('/pesawat')->with('success', 'Data berhasil dihapus');
+    	} else {
+    		return redirect('/pesawat/tambah')->with('error', 'Data gagal dihapus');
     	}
     }
 
@@ -132,9 +176,52 @@ class PesawatController extends Controller
     	$status = $bandara->save();
 
     	if ($status) {
+            Alert::success('Success', 'Data Berhasil Ditambah');
     		return redirect('/bandara')->with('success', 'Data berhasil ditambahkan');
     	} else {
     		return redirect('/bandara/tambah')->with('error', 'Data gagal ditambahkan');
     	}
     }
+
+    public function bndrUpdate(Request $request,$id)
+    {
+    	$rule = [
+    		'nama_bandara' => 'required|string',
+    		'kota' => 'required|string',
+            'alamat' => 'required',
+            'negara'=>'required',
+    		'keterangan' => 'required'
+    	];
+        $this->validate($request, $rule);
+        $input = $request->all();
+
+        $naon = bandara::find('id_bandara',$id);
+        $status = $naon->update($input);
+
+
+    	if ($status) {
+    		return redirect('/bandara')->with('success', 'Data berhasil diedit');
+    	} else {
+    		return redirect('/bandara/tambah')->with('error', 'Data gagal diedit');
+        }
+        
+    }
+
+    public function bndrEdit(Request $request,$id){
+        $data = bandara::where('id_bandara',$id)->first();
+        return view('admin.pesawat.bandara.edit',['bandara' => $data]);
+    }
+
+    public function bndrHapus(Request $request, $id)
+    {
+    	$jadwal = bandara::where('id_bandara',$id)->delete();
+
+    	if ($jadwal) {
+            Alert::success('Success', 'Data Berhasil Dihapus');
+    		return redirect('/bandara')->with('success', 'Data berhasil dihapus');
+    	} else {
+    		return redirect('/bandara/tambah')->with('error', 'Data gagal dihapus');
+    	}
+    }
+
 }

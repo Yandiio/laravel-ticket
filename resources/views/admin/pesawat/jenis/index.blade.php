@@ -84,7 +84,10 @@
                 <td>{{$table->tahun_pesawat}}</td>
                 <td>
                 <a class="btn btn-warning " href="/pesawat/edit/{{$table->id}}">Edit</a>
-                <a class="btn btn-danger" href="/pesawat/hapus/{{$table->id}}">Hapus</a>   
+                <form action="{{ url('/pesawat', $table->id_pesawat ) }}" method="DELETE">
+                    {{  csrf_field() }}
+					          <button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Delete</button>
+				          </form>   
                 </td>
               </tr>
               @endforeach

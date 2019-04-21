@@ -42,23 +42,23 @@ Route::get('station','KeretaController@station');
 Route::get('jadwal','PesawatController@jdwl');
 Route::get('jadwal/tambah','PesawatController@jdwlTambah');
 Route::post('jadwal', 'PesawatController@jdwlStore');
-Route::get('jadwal/{id}/edit','PesawatController@jdwlEdit');
-Route::patch('jadwal/{id}', 'PesawatController@jdwlUpdate');
-Route::get('jadwal/{id}', 'PesawatController@jdwlHapus');
+Route::get('jadwal/{id_jdwlPesawat}/edit','PesawatController@jdwlEdit');
+Route::patch('jadwal/{id_jdwlPesawat}/update', 'PesawatController@jdwlUpdate');
+Route::get('jadwal/{id_jdwlPesawat}', 'PesawatController@jdwlHapus');
 
 // Nama Pesawat
 Route::get('pesawat','PesawatController@pswt');
 Route::get('pesawat/tambah','PesawatController@pswtTambah');
 Route::post('pesawat', 'PesawatController@pswtStore');
-Route::get('pesawat/{id}/edit','PesawatController@pswtEdit');
+Route::get('pesawat/{id_pesawat}/edit','PesawatController@pswtEdit');
 Route::patch('pesawat/{id}', 'PesawatController@pswtUpdate');
-Route::delete('pesawat/{id}', 'PesawatController@pswtHapus');
+Route::get('pesawat/{id_pesawat}', 'PesawatController@pswtHapus');
 
 // Bandara
 Route::get('bandara','PesawatController@bndr');
 Route::get('bandara/tambah','PesawatController@bndrTambah');
 Route::post('bandara', 'PesawatController@bndrStore');
-Route::get('bandara/{id}/edit','PesawatController@bndrEdit');
-Route::patch('bandara/{id}', 'PesawatController@bndrUpdate');
-Route::delete('bandara/{id}', 'PesawatController@bndrHapus');
+Route::get('bandara/{id_bandara}/edit','PesawatController@bndrEdit');
+Route::patch('bandara/{id_bandara}/update', 'PesawatController@bndrUpdate');
+Route::get('bandara/{id_bandara}', 'PesawatController@bndrHapus');
 

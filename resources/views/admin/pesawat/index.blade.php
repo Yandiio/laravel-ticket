@@ -78,9 +78,9 @@
                 <td>{{$table->tanggal_keberangkatan}}</td>
                 <td>{{$table->Durasi_perjalanan}}</td>
                 <td>   
-                <a class="btn btn-warning " href="/jadwal/edit/{{$table->id}}">Edit</a>
-                  <form action="{{ url('/jadwal/' . $table->id ) }}" method="DELETE">
-                    {{csrf_field()}}
+                <a class="btn btn-warning " href="{{url('/jadwal/'. $table->id_jdwlPesawat .'/edit')}}">Edit</a>
+                  <form action="{{ url('/jadwal', $table->id_jdwlPesawat ) }}" method="DELETE">
+                    {{  csrf_field() }}
 					          <button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Delete</button>
 				          </form>
                 <!-- <a class="btn btn-danger" href="/jadwal/hapus/{{$table->id}}">Hapus</a>    -->
@@ -108,5 +108,8 @@
   <!-- End of Content Wrapper -->
 
   </div>
-
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @include('sweet::alert')
 @endsection
