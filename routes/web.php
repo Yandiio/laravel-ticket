@@ -30,13 +30,19 @@ Route::get('admin','AdminController@index');
 // Jadwal Kereta
 Route::get('/schedule','KeretaController@index');    
 Route::delete('/schedule/hapus/{id}','KeretaController@destroy');
+Route::get('/schedule/tambah','KeretaController@jdwlTambah');
 // Route::get('schedule/add-jadwal', 'TrainController@input');
-// Route::post('schedule', 'TrainController@store');
+Route::post('schedule', 'KeretaController@jdwlStore');
 // Route::get('/schedule/{id}/edit', "TrainController@edit");
+Route::get('schedule/{id}','KeretaController@hapus');
 // Route::patch('/schedule/{id}', 'TrainController@update');
 
 // Stasiun Kereta
 Route::get('station','KeretaController@station');
+Route::get('station/tambah','KeretaController@tambah');
+Route::post('station','KeretaController@store');
+Route::get('station/{id_stasiun}','KeretaController@destroy');
+
 
 // Jadwal Pesawat
 Route::get('jadwal','PesawatController@jdwl');
