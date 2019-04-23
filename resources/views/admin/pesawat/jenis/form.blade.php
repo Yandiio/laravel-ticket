@@ -1,6 +1,29 @@
 @extends('layouts.app')
 @section('content')
 
+@section('js')
+<script type="text/javascript">
+
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#showgambar').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#inputgambar").change(function () {
+        readURL(this);
+    });
+
+</script>
+
+@stop
+
 <head>
 
   <meta charset="utf-8">
@@ -87,7 +110,7 @@
     <!-- foto -->
 		<div class="form-group">
     	<label for="formGroupTahun">Foto</label><br>
-      	<input type="file" id="formGroupFoto" name="foto_pesawat" value="{{ old('foto' , @$pesawat->foto) }}" autocomplete="off" min="1" max="2030">
+			<input type="file" id="inputgambar" name="gambar" class="validate" value="{{ old('foto' , @$pesawat->foto) }}" autocomplete="off" min="1" max="2030" >
   	</div> <br>
 	<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
     </form>

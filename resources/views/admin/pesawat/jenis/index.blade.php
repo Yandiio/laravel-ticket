@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
+
 <head>
 
   <meta charset="utf-8">
@@ -80,7 +81,7 @@
                 <td>{{$table->kapasitas}}</td>
                 <td>{{$table->tipe_pesawat}}</td>
                 <td>{{$table->maskapai}}</td>
-                <td>{{$table->photo}}</td>
+                <td><img src="{{'image/'.$table->photo}}" style="max-height:200px;max-width:200px;margin-top:10px;"></td>
                 <td>{{$table->tahun_pesawat}}</td>
                 <td>
                 <a class="btn btn-warning " href="/pesawat/edit/{{$table->id}}">Edit</a>

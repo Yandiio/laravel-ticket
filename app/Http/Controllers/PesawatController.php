@@ -111,7 +111,8 @@ class PesawatController extends Controller
             'kapasitas' => 'required|integer',
             'tipe_pesawat'=>'required',
             'maskapai' => 'required',
-            'tahun_pesawat' => 'required|integer'
+            'tahun_pesawat' => 'required|integer',
+            'photo' => 'required',
     	];
     	$this->validate($request, $rule);
 
@@ -123,7 +124,14 @@ class PesawatController extends Controller
         $pesawat->tipe_pesawat = $input['tipe_pesawat'];
         $pesawat->maskapai = $input['maskapai'];
         $pesawat->tahun_pesawat = $input['tahun_pesawat'];
-        // $pesawat->photo = $['']
+        $pesawat->photo = $filename;
+
+        // upload foto
+        $file = $request->file('photo');
+        $filename= $file->getClientOriginalName();
+        $request->file('photo')->move("image/",$filename);
+
+
     	$status = $pesawat->save();
 
     	if ($status) {
