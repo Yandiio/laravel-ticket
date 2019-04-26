@@ -82,7 +82,7 @@
                 <td>{{$table->alamat}}</td>
                 <td>{{$table->keterangan}}</td>
                 <td>
-                  <a class="btn btn-warning " href="{{url('/station /'. $table->id_stasiun .'/edit')}}"><i
+                  <a class="btn btn-warning " href="{{url('/station/'. $table->id_stasiun .'/edit')}}"><i
                       class="glyphicon glyphicon-pencil"></i>Edit</a>
                   <form action="{{url('/station',$table->id_stasiun)}}" method="delete">
                     <button type="submit" class="btn btn-danger">Hapus</button>

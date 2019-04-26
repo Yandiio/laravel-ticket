@@ -50,6 +50,37 @@ class KeretaController extends Controller
     		return redirect('/schedule/tambah')->with('error', 'Data gagal ditambahkan');
     	}
     }
+    public function jdwlUpdate(Request $request,$id)
+    {
+    	$rule = [
+    		'tujuan' => 'required|string',
+    		'stasiun_keberangkatan' => 'required|string',
+            'waktu_keberangkatan' => 'required',
+            'waktu_sampai'=>'required',
+            'tanggal_keberangkatan' => 'required',
+            'Durasi_perjalanan' => 'required|integer'
+    	];
+        $this->validate($request, $rule);
+        $input = $request->all();
+
+        $naon = jdwlKereta::where('id', $id);
+        unset($input['_token']);
+    	unset($input['_method']);
+        $status = $naon->update($input);
+
+
+    	if ($status) {
+    		return redirect('/schedule')->with('success', 'Data berhasil diedit');
+    	} else {
+    		return redirect('/schedule/tambah')->with('error', 'Data gagal diedit');
+        }
+        
+    }
+
+    public function jdwlEdit(Request $request,$id){
+        $data = jdwlKereta::where('id',$id)->first();
+        return view('admin.kereta.edit',['jadwal' => $data]);
+    }
 
     public function Hapus(Request $request, $id)
     {
@@ -114,7 +145,36 @@ class KeretaController extends Controller
     	}
     }
 
+    public function stationUpdate(Request $request,$id)
+    {
+    	$rule = [
+    		'nomor' => 'required',
+    		'nama_stasiun' => 'required|string',
+            'kota' => 'required',
+            'alamat'=>'required',
+    		'keterangan' => 'required'
+    	];
+        $this->validate($request, $rule);
+        $input = $request->all();
 
+        $naon = kereta::where('id_stasiun', $id);
+        unset($input['_token']);
+    	unset($input['_method']);
+        $status = $naon->update($input);
+
+
+    	if ($status) {
+    		return redirect('/station')->with('success', 'Data berhasil diedit');
+    	} else {
+    		return redirect('/station/tambah')->with('error', 'Data gagal diedit');
+        }
+        
+    }
+
+    public function stationEdit(Request $request,$id){
+        $data = kereta::where('id_stasiun',$id)->first();
+        return view('admin.kereta.stasiun.edit',['stasiun' => $data]);
+    }
 
 
 

@@ -56,7 +56,7 @@
         <button type="button" class="btn btn-secondary mb-2"><i class="glyphicon glyphicon-chevron-left"></i> Kembali</button>
     </a>
 
-    <form action="{{ url('bandara' , @$bandara->id) }}" method="PATCH">
+    <form action="{{ url('bandara' , @$bandara->id) }}" method="POST">
     <!-- @csrf -->
     
 	@if(!empty($bandara))

@@ -50,35 +50,36 @@ class PesawatController extends Controller
     	}
     }
 
-    public function jdwlUpdate(Request $request)
+    public function jdwlUpdate(Request $request,$id)
     {
     	$rule = [
     		'tujuan' => 'required|string',
     		'Bandara_keberangkatan' => 'required|string',
             'waktu_keberangkatan' => 'required',
             'waktu_sampai'=>'required',
-            'tanggal_keberangkatan' => 'required|date',
-            'Durasi_perjalanan' => 'required'
+            'tanggal_keberangkatan' => 'required',
+            'Durasi_perjalanan' => 'required|integer'
     	];
-    	$this->validate($request, $rule);
-    	$input = $request->all();
+        $this->validate($request, $rule);
+        $input = $request->all();
 
-
-        $naon = jdwlPesawat::find('id_jdwlPesawat',$id);
+        $naon = jdwlPesawat::where('id_jdwlPesawat', $id);
+        unset($input['_token']);
+    	unset($input['_method']);
         $status = $naon->update($input);
 
 
     	if ($status) {
-    		return redirect('/bandara')->with('success', 'Data berhasil diedit');
+    		return redirect('/jadwal')->with('success', 'Data berhasil diedit');
     	} else {
-    		return redirect('/bandara/tambah')->with('error', 'Data gagal diedit');
+    		return redirect('/jadwal/tambah')->with('error', 'Data gagal diedit');
         }
         
     }
 
     public function jdwlEdit(Request $request,$id){
         $data = jdwlPesawat::where('id_jdwlPesawat',$id)->first();
-        return view('admin.pesawat.edit',['jdwl_Pesawat' => $data]);
+        return view('admin.pesawat.edit',['jadwal' => $data]);
     }
 
     public function jdwlHapus(Request $request, $id)
@@ -203,7 +204,9 @@ class PesawatController extends Controller
         $this->validate($request, $rule);
         $input = $request->all();
 
-        $naon = bandara::find('id_bandara',$id);
+        $naon = bandara::where('id_bandara', $id);
+        unset($input['_token']);
+    	unset($input['_method']);
         $status = $naon->update($input);
 
 

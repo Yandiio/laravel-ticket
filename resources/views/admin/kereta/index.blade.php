@@ -77,7 +77,7 @@
                 <td>{{$table->waktu_sampai}}</td>
                 <td>{{$table->tanggal_keberangkatan}}</td>
                 <td>
-                <a class="btn btn-warning " href="{{url('/schedule /'. $table->id .'/edit')}}"><i class="glyphicon glyphicon-pencil"></i>Edit</a>
+                <a class="btn btn-warning " href="{{url('/schedule/'. $table->id .'/edit')}}"><i class="glyphicon glyphicon-pencil"></i>Edit</a>
                   <form action="{{url('/schedule',$table->id)}}" method="delete">
                     <button type="submit" class="btn btn-danger">Hapus</button>
                   </form>

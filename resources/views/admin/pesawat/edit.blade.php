@@ -61,7 +61,7 @@
     
 	@if(!empty($jadwal))
   {{csrf_field()}}
-		{{method_field('PATCH')}}}
+		{{method_field('PATCH')}}
 		<!-- BLANK -->
 	@endif
 

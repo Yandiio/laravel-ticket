@@ -52,16 +52,16 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Edit Form jadwal</h1>
 
-    <a href="{{ url('/jadwal') }}">
+    <a href="{{ url('/schedule') }}">
         <button type="button" class="btn btn-secondary mb-2"><i class="glyphicon glyphicon-chevron-left"></i> Kembali</button>
     </a>
 
-    <form action="{{ url('jadwal' , @$jadwal->id_jdwlPesawat) }}" method="POST">
+    <form action="{{ url('schedule' , @$jadwal->id) }}" method="POST">
     <!-- @csrf -->
     
 	@if(!empty($jadwal))
   {{csrf_field()}}
-		{{method_field('PATCH')}}}
+		{{method_field('PATCH')}}
 		<!-- BLANK -->
 	@endif
 
@@ -70,8 +70,8 @@
       	<input type="text" class="form-control" id="formGroupTujuan" name="tujuan" value="{{ old('tujuan' , @$jadwal->tujuan) }}" autocomplete="off">
   	</div>	
 	<div class="form-group">
-    	<label for="formGroupBandara">Bandara Keberangkatan</label>
-      	<input type="text" class="form-control" id="formGroupBandara" name="Bandara_keberangkatan" value="{{ old('Bandara_keberangkatan' , @$jadwal->Bandara_keberangkatan) }}" autocomplete="off">
+    	<label for="formGroupStasiun">Stasiun Keberangkatan</label>
+      	<input type="text" class="form-control" id="formGroupStasiun" name="stasiun_keberangkatan" value="{{ old('stasiun_keberangkatan' , @$jadwal->stasiun_keberangkatan) }}" autocomplete="off">
   	</div>
     <div class="form-group">
     	<label for="formGroupWBerangkat">Waktu Keberangkatan</label>

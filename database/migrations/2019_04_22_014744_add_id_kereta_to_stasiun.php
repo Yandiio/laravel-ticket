@@ -14,7 +14,7 @@ class AddIdKeretaToStasiun extends Migration
     public function up()
     {
         Schema::table('stasiun',function($table){
-            $table->increments('id_pesawat');
+            $table->increments('id_stasiun');
         });
     }
 
